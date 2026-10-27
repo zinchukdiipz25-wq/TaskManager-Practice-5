@@ -13,6 +13,7 @@ class Program
         {
             Console.WriteLine("\n=== Менеджер завдань ===");
             Console.WriteLine("1. Додати завдання");
+            Console.WriteLine("2. Переглянути завдання");
             Console.WriteLine("0. Вихід");
             Console.Write("Ваш вибір: ");
 
@@ -24,6 +25,10 @@ class Program
                     Console.Write("Введіть назву завдання: ");
                     string title = Console.ReadLine() ?? "";
                     service.AddTask(title);
+                    break;
+
+                case "2":
+                    service.ShowTasks();
                     break;
 
                 case "0":
