@@ -17,4 +17,20 @@ public class TaskService
         tasks.Add(title.Trim());
         Console.WriteLine("Завдання успішно додано!");
     }
+
+    public void ShowTasks()
+    {
+        if (tasks.Count == 0)
+        {
+            Console.WriteLine("Список завдань порожній.");
+            return;
+        }
+
+        Console.WriteLine("\n=== Список завдань ===");
+
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {tasks[i]}");
+        }
+    }
 }
