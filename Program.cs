@@ -7,11 +7,33 @@ class Program
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        Console.WriteLine("=== Менеджер завдань ===");
-        Console.WriteLine("1. Додати завдання");
-        Console.WriteLine("2. Переглянути завдання");
-        Console.WriteLine("0. Вихід");
+        TaskService service = new TaskService();
 
-        Console.WriteLine("Програма готова до розширення.");
+        while (true)
+        {
+            Console.WriteLine("\n=== Менеджер завдань ===");
+            Console.WriteLine("1. Додати завдання");
+            Console.WriteLine("0. Вихід");
+            Console.Write("Ваш вибір: ");
+
+            string? choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    Console.Write("Введіть назву завдання: ");
+                    string title = Console.ReadLine() ?? "";
+                    service.AddTask(title);
+                    break;
+
+                case "0":
+                    Console.WriteLine("Завершення роботи.");
+                    return;
+
+                default:
+                    Console.WriteLine("Невідома команда!");
+                    break;
+            }
+        }
     }
 }
